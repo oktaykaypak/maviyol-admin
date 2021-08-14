@@ -16,18 +16,21 @@
     data-kt-drawer-toggle="#kt_aside_mobile_toggle"
   >
     <!--begin::Brand-->
-    <div class="aside-logo flex-column-auto" id="kt_aside_logo">
+    <div class="aside-logo flex-column-auto justify-content-center" id="kt_aside_logo">
       <!--begin::Logo-->
       <a href="#" v-if="asideTheme === 'dark'">
-        <img alt="Logo" :src="darkLogo" class="h-15px logo" />
+        <h1 style="color:white;">MAVİYYO</h1>
+        <!-- <img alt="Logo" :src="darkLogo" class="h-15px logo" /> -->
       </a>
       <a href="#" v-if="asideTheme === 'light'">
-        <img alt="Logo" :src="lightLogo" class="h-15px logo" />
+       <h1 style="color:black;">MAVİYYO</h1>
+       <!-- <img alt="Logo" :src="lightLogo" class="h-15px logo" /> -->
       </a>
       <!--end::Logo-->
 
       <!--begin::Aside toggler-->
-      <div
+      <!-- minimize etme butonu başlangıç -->
+      <!-- <div
         id="kt_aside_toggle"
         class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle"
         data-kt-toggle="true"
@@ -40,7 +43,8 @@
             src="media/icons/duotone/Navigation/Angle-double-left.svg"
           />
         </span>
-      </div>
+      </div> -->
+      <!-- minimize etme butonu bitiş -->
       <!--end::Aside toggler-->
     </div>
     <!--end::Brand-->
