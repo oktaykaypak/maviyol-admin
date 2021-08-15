@@ -1,19 +1,35 @@
 <template>
-<div>dashboard</div>
+  <!--begin::tekneTable-->
+  <div class="row">
+    <div class="col-md-11">
+      <DataTable :list="viewList"></DataTable>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <el-pagination
+        layout="prev, pager, next"
+        :page-size="this.tableTotalData"
+        :total="listLen"
+        @current-change="handleCurrentChange"
+      >
+      </el-pagination>
+    </div>
+  </div>
+
+  <!--end::tekneTable-->
 </template>
 
 <script>
-import { defineComponent, onMounted } from "vue";
-import { setCurrentPageTitle } from "@/core/helpers/breadcrumb";
-
-
+import { defineComponent } from "vue";
+import DataTable from "@/components/widgets/tables/tekneListTable.vue";
+import tableService from "../../functions/table";
 export default defineComponent({
-  name: "dashboard",
-  components: {
-    DataTable,
-  },
+  name: "tekneTable",
+  components: {DataTable},
   data() {
     return {
+      // list=gerekli data tablo için
       list: [
         {
           orderid: "56037-XDER",
@@ -1408,28 +1424,24 @@ export default defineComponent({
           total: "$8376",
         },
       ],
-      tableTotalData: 1,
-      listLen: 0,
-      viewList: [],
+      tableTotalData: 10, // tablonun 1 sayfasında olmasını istediginiz data sayısı
+      listLen: 0, //tablo gereksinimi 
+      viewList: [], //listeden gelen dataların tabloya iletildiği değişken
     };
   },
   mounted() {
+    // */functions/table üzerinden geirilen js ler ile tablo fonksiyonları oluşturuldu
     this.listLen = tableService.listLength(this.list);
     this.viewList = tableService.firstTimeTable(this.tableTotalData, this.list);
   },
   methods: {
-    handleCurrentChange(val) {
+    handleCurrentChange(val) { // pagination uzerınden tıklanan value nun alındıgı ve ekrana ilgili page datasının aktarıldıgı fonksiyon
       this.viewList = tableService.handleCurrentChange(
         val,
         this.tableTotalData,
         this.list
       );
     },
-  },
-  setup() {
-    onMounted(() => {
-      setCurrentPageTitle("Dashboard");
-    });
   },
 });
 </script>

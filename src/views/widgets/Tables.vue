@@ -96,7 +96,7 @@ import TablesWidget9 from "@/components/widgets/tables/Widget9.vue";
 import TablesWidget10 from "@/components/widgets/tables/Widget10.vue";
 import TablesWidget11 from "@/components/widgets/tables/Widget11.vue";
 import TablesWidget12 from "@/components/widgets/tables/Widget12.vue";
-import TablesWidget13 from "@/components/widgets/tables/Widget13.vue";
+import TablesWidget13 from "@/components/widgets/tables/tekneListTable.vue";
 import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
 import { MenuComponent } from "@/assets/ts/components";
 
