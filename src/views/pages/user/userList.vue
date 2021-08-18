@@ -1,14 +1,14 @@
 <template>
-<div>dashboard</div>
+  <user-table :list="list" :tableTotalData="7"></user-table>
 </template>
 
 <script>
-import { defineComponent, onMounted } from "vue";
-import { setCurrentPageTitle } from "@/core/helpers/breadcrumb";
-
-
-export default defineComponent({
-  name: "dashboard",
+import userTable from "@/components/widgets/tables/userTable.vue";
+export default {
+  name: "userlist",
+  components: {
+    userTable,
+  },
   data() {
     return {
       list: [
@@ -1405,15 +1405,9 @@ export default defineComponent({
           total: "$8376",
         },
       ],
-      tableTotalData: 1,
-      listLen: 0,
-      viewList: [],
-    };
-  },
-  setup() {
-    onMounted(() => {
-      setCurrentPageTitle("Dashboard");
-    });
-  },
-});
+    }
+  }
+};
 </script>
+
+<style></style>

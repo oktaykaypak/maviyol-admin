@@ -1,11 +1,12 @@
 <template>
   <div class="card">
     <!--begin::Tables Widget 13-->
-    <div :class="widgetClasses">
+  
+     <div :class="widgetClasses">
       <!--begin::Header-->
       <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
-          <span class="card-label fw-bolder fs-3 mb-1">Tekneler</span>
+          <span class="card-label fw-bolder fs-3 mb-1">SEO Bilgileri </span>
         </h3>
         <div class="card-toolbar">
           <!--begin::Menu-->
@@ -267,12 +268,10 @@ export default defineComponent({
   methods: {
     handleCurrentChange(val) {
       // pagination uzerınden tıklanan value nun alındıgı ve ekrana ilgili page datasının aktarıldıgı fonksiyon
-      
       this.viewList = tableService.handleCurrentChange(
         val,
         this.tableTotalData,
         this.list
-        
       );
     },
   },

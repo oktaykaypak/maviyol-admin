@@ -1,14 +1,15 @@
 <template>
-<div>dashboard</div>
+  <port-table :list="list" :tableTotalData="7"></port-table>
 </template>
 
 <script>
-import { defineComponent, onMounted } from "vue";
-import { setCurrentPageTitle } from "@/core/helpers/breadcrumb";
 
-
-export default defineComponent({
-  name: "dashboard",
+import portTable from '@/components/widgets/tables/portTable.vue';
+export default {
+  name: "ports",
+  components: {
+    portTable,
+  },
   data() {
     return {
       list: [
@@ -1405,15 +1406,9 @@ export default defineComponent({
           total: "$8376",
         },
       ],
-      tableTotalData: 1,
-      listLen: 0,
-      viewList: [],
-    };
-  },
-  setup() {
-    onMounted(() => {
-      setCurrentPageTitle("Dashboard");
-    });
-  },
-});
+    }
+  }
+};
 </script>
+
+<style></style>

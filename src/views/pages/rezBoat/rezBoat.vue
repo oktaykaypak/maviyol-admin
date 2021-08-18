@@ -1,14 +1,16 @@
 <template>
-<div>dashboard</div>
+  <rez-tekne :list="list" :tableTotalData="7"></rez-tekne>
 </template>
 
 <script>
-import { defineComponent, onMounted } from "vue";
-import { setCurrentPageTitle } from "@/core/helpers/breadcrumb";
 
+import rezTekne from '@/components/widgets/tables/rezTekne.vue';
 
-export default defineComponent({
-  name: "dashboard",
+export default {
+  name: "rezBoat",
+  components: {
+    rezTekne,
+  },
   data() {
     return {
       list: [
@@ -1405,15 +1407,9 @@ export default defineComponent({
           total: "$8376",
         },
       ],
-      tableTotalData: 1,
-      listLen: 0,
-      viewList: [],
-    };
-  },
-  setup() {
-    onMounted(() => {
-      setCurrentPageTitle("Dashboard");
-    });
-  },
-});
+    }
+  }
+};
 </script>
+
+<style></style>

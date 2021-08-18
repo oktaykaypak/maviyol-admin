@@ -1,14 +1,16 @@
 <template>
-<div>dashboard</div>
+  <comment-table :list="list" :tableTotalData="7"></comment-table>
 </template>
 
 <script>
-import { defineComponent, onMounted } from "vue";
-import { setCurrentPageTitle } from "@/core/helpers/breadcrumb";
 
+import commentTable from '@/components/widgets/tables/commentTable.vue';
 
-export default defineComponent({
-  name: "dashboard",
+export default {
+  name: "comments",
+  components: {
+    commentTable,
+  },
   data() {
     return {
       list: [
@@ -1405,15 +1407,9 @@ export default defineComponent({
           total: "$8376",
         },
       ],
-      tableTotalData: 1,
-      listLen: 0,
-      viewList: [],
-    };
-  },
-  setup() {
-    onMounted(() => {
-      setCurrentPageTitle("Dashboard");
-    });
-  },
-});
+    }
+  }
+};
 </script>
+
+<style></style>

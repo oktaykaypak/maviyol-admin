@@ -19,9 +19,49 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import("@/views/Builder.vue")
       },
       {
-        path: "/teknelist",
+        path: "/boatslist",
         name: "teknetable",
         component: () => import("@/views/pages/tekne/tekneTable.vue")
+      },
+      {
+        path: "/userlist",
+        name: "userlist",
+        component: () => import("@/views/pages/user/userList.vue")
+      },
+      {
+        path: "/rez-boat",
+        name: "rezBoat",
+        component: () => import("@/views/pages/rezBoat/rezBoat.vue")
+      },
+      {
+        path: "/comments",
+        name: "comments",
+        component: () => import("@/views/pages/comments/comments.vue")
+      },
+      {
+        path: "/dealers",
+        name: "dealers",
+        component: () => import("@/views/pages/dealers/dealers.vue")
+      },
+      {
+        path: "/demands",
+        name: "demands",
+        component: () => import("@/views/pages/demands/demands.vue")
+      },
+      {
+        path: "/ports",
+        name: "ports",
+        component: () => import("@/views/pages/ports/ports.vue")
+      },
+      {
+        path: "/rez-cab",
+        name: "rezCab",
+        component: () => import("@/views/pages/rezCab/rezCab.vue")
+      },
+      {
+        path: "/management/seo",
+        name: "seo",
+        component: () => import("@/views/pages/management/seo.vue")
       },
       {
         path: "/crafted/pages/profile",

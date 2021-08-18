@@ -1,14 +1,15 @@
 <template>
-<div>dashboard</div>
+  <dealer-table :list="list" :tableTotalData="7"></dealer-table>
 </template>
 
 <script>
-import { defineComponent, onMounted } from "vue";
-import { setCurrentPageTitle } from "@/core/helpers/breadcrumb";
 
-
-export default defineComponent({
-  name: "dashboard",
+import dealerTable from '@/components/widgets/tables/dealerTable.vue';
+export default {
+  name: "dealers",
+  components: {
+    dealerTable,
+  },
   data() {
     return {
       list: [
@@ -1405,15 +1406,9 @@ export default defineComponent({
           total: "$8376",
         },
       ],
-      tableTotalData: 1,
-      listLen: 0,
-      viewList: [],
-    };
-  },
-  setup() {
-    onMounted(() => {
-      setCurrentPageTitle("Dashboard");
-    });
-  },
-});
+    }
+  }
+};
 </script>
+
+<style></style>

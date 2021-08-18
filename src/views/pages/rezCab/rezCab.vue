@@ -1,14 +1,15 @@
 <template>
-<div>dashboard</div>
+  <rez-kabin :list="list" :tableTotalData="7"></rez-kabin>
 </template>
 
 <script>
-import { defineComponent, onMounted } from "vue";
-import { setCurrentPageTitle } from "@/core/helpers/breadcrumb";
+import rezKabin from '@/components/widgets/tables/rezKabin.vue';
 
-
-export default defineComponent({
-  name: "dashboard",
+export default {
+  name: "rezCab",
+  components: {
+    rezKabin,
+  },
   data() {
     return {
       list: [
@@ -1405,15 +1406,9 @@ export default defineComponent({
           total: "$8376",
         },
       ],
-      tableTotalData: 1,
-      listLen: 0,
-      viewList: [],
-    };
-  },
-  setup() {
-    onMounted(() => {
-      setCurrentPageTitle("Dashboard");
-    });
-  },
-});
+    }
+  }
+};
 </script>
+
+<style></style>

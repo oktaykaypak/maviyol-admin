@@ -1,14 +1,16 @@
 <template>
-<div>dashboard</div>
+  <demand-table :list="list" :tableTotalData="7"></demand-table>
 </template>
 
 <script>
-import { defineComponent, onMounted } from "vue";
-import { setCurrentPageTitle } from "@/core/helpers/breadcrumb";
 
+import demandTable from '@/components/widgets/tables/demandTable.vue';
 
-export default defineComponent({
-  name: "dashboard",
+export default {
+  name: "demands",
+  components: {
+    demandTable,
+  },
   data() {
     return {
       list: [
@@ -1405,15 +1407,9 @@ export default defineComponent({
           total: "$8376",
         },
       ],
-      tableTotalData: 1,
-      listLen: 0,
-      viewList: [],
-    };
-  },
-  setup() {
-    onMounted(() => {
-      setCurrentPageTitle("Dashboard");
-    });
-  },
-});
+    }
+  }
+};
 </script>
+
+<style></style>

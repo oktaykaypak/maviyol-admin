@@ -1,14 +1,15 @@
 <template>
-<div>dashboard</div>
+  <seo-table :list="list" :tableTotalData="7"></seo-table>
 </template>
 
 <script>
-import { defineComponent, onMounted } from "vue";
-import { setCurrentPageTitle } from "@/core/helpers/breadcrumb";
+import seoTable from '@/components/widgets/tables/seoTable.vue';
 
-
-export default defineComponent({
-  name: "dashboard",
+export default {
+  name: "seo",
+  components: {
+    seoTable,
+  },
   data() {
     return {
       list: [
@@ -1405,15 +1406,9 @@ export default defineComponent({
           total: "$8376",
         },
       ],
-      tableTotalData: 1,
-      listLen: 0,
-      viewList: [],
-    };
-  },
-  setup() {
-    onMounted(() => {
-      setCurrentPageTitle("Dashboard");
-    });
-  },
-});
+    }
+  }
+};
 </script>
+
+<style></style>
