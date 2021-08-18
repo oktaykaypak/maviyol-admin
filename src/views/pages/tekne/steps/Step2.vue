@@ -25,12 +25,12 @@
       <Field
         type="text"
         class="form-control form-control-lg form-control-solid"
-        name="accountName"
+        name="boatName"
         placeholder=""
-        value=""
+        
       />
       <ErrorMessage
-        name="accountName"
+        name="boatName"
         class="fv-plugins-message-container invalid-feedback"
       ></ErrorMessage>
       <!--end::Input-->
@@ -38,25 +38,53 @@
     <!--end::Input group-->
 
     <!--begin::Input group-->
-    <div class="mb-10 fv-row">
-      <el-select v-model="value" placeholder="Tip seçiniz">
-        <el-option
-          v-for="item in options"
+    
+    <div class="mb-10  fv-row">
+      <div class="row">
+      <div class="col-6">
+        <Field
+        name="privateBoatType"
+        class="form-select form-select-lg form-select-solid "
+        data-control="select2"
+        data-placeholder="Select..."
+        data-allow-clear="true"
+        data-hide-search="true"
+        as="select"
+      >
+      <option value="" disabled selected>Tekne Tipi Seçiniz..</option>
+        <option v-for="item in options"
           :key="item.value"
           :label="item.label"
-          :value="item.value"
-        >
-        </el-option>
-      </el-select>
-      <el-select class="ms-20" v-model="value" placeholder="Sınıf seçiniz">
-        <el-option
-          v-for="item in options"
+          :value="item.value"></option>
+      </Field>
+      <ErrorMessage
+        name="privateBoatType"
+        class="fv-plugins-message-container invalid-feedback"
+      ></ErrorMessage>
+
+      </div>
+      <div class="col-6">
+        <Field
+        name="privateBoatClass"
+        class="form-select form-select-lg form-select-solid"
+        data-control="select2"
+        data-placeholder="Select..."
+        data-allow-clear="true"
+        data-hide-search="true"
+        as="select"
+      >
+      <option value="" disabled selected> Tekne Sınıfı Seçiniz..</option>
+        <option v-for="item in options"
           :key="item.value"
           :label="item.label"
-          :value="item.value"
-        >
-        </el-option>
-      </el-select>
+          :value="item.value"></option>
+      </Field>
+      <ErrorMessage
+        name="privateBoatClass"
+        class="fv-plugins-message-container invalid-feedback"
+      ></ErrorMessage>
+      </div>
+    </div>
     </div>
     <!--end::Input group-->
   </div>
@@ -97,7 +125,7 @@ export default defineComponent({
           label: "Option5",
         },
       ],
-      value: "",
+     
     };
   },
 });

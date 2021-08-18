@@ -13,41 +13,31 @@
         <div class="stepper-nav py-5 mt-5">
           <!--begin::Step 1-->
           <div class="stepper-item current" data-kt-stepper-element="nav">
-            <h3 class="stepper-title">
-              Boat Type
-            </h3>
+            <h3 class="stepper-title">Boat Type</h3>
           </div>
           <!--end::Step 1-->
 
           <!--begin::Step 2-->
           <div class="stepper-item" data-kt-stepper-element="nav">
-            <h3 class="stepper-title">
-              Private info
-            </h3>
+            <h3 class="stepper-title">Private info</h3>
           </div>
           <!--end::Step 2-->
 
           <!--begin::Step 3-->
           <div class="stepper-item" data-kt-stepper-element="nav">
-            <h3 class="stepper-title">
-              General info
-            </h3>
+            <h3 class="stepper-title">General info</h3>
           </div>
           <!--end::Step 3-->
 
           <!--begin::Step 4-->
           <div class="stepper-item" data-kt-stepper-element="nav">
-            <h3 class="stepper-title">
-              Billing Details
-            </h3>
+            <h3 class="stepper-title">Billing Details</h3>
           </div>
           <!--end::Step 4-->
 
           <!--begin::Step 5-->
           <div class="stepper-item" data-kt-stepper-element="nav">
-            <h3 class="stepper-title">
-              Completed
-            </h3>
+            <h3 class="stepper-title">Completed</h3>
           </div>
           <!--end::Step 5-->
         </div>
@@ -169,33 +159,33 @@ import Step5 from "@/views/pages/tekne/steps/Step5.vue";
 import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
 
 interface Step1 {
-  accountType: string;
+  boatType: string;
 }
 
 interface Step2 {
-  accountTeamSize: string;
-  accountName: string;
-  accountPlan: string;
+  boatName: string;
+  privateBoatType: string;
+  privateBoatClass: string;
 }
 
 interface Step3 {
-  businessName: string;
-  businessDescriptor: string;
-  businessType: string;
-  businessDescription: string;
-  businessEmail: string;
+  createYear: string;
+  flag: string;
+  cabCount: string;
+  guestCount: string;
+  crewCount: string;
+  boatLength: string;
+  boatWidth: string;
+  boatDeep: string;
 }
 
 interface Step4 {
   nameOnCard: string;
-  cardNumber: string;
-  cardExpiryMonth: string;
-  cardExpiryYear: string;
-  cardCvv: string;
-  saveCard: string;
+  visitPorts: any;
+ 
 }
 
-interface CreateAccount extends Step1, Step2, Step3, Step4 {}
+interface AddBoat extends Step1, Step2, Step3, Step4 {}
 
 export default defineComponent({
   name: "boatcreate",
@@ -211,22 +201,21 @@ export default defineComponent({
     const horizontalWizardRef = ref<HTMLElement | null>(null);
     const currentStepIndex = ref(0);
 
-    const formData = ref<CreateAccount>({
-      accountType: "personal",
-      accountTeamSize: "50+",
-      accountName: "",
-      accountPlan: "1",
-      businessName: "Keenthemes Inc.",
-      businessDescriptor: "KEENTHEMES",
-      businessType: "1",
-      businessDescription: "",
-      businessEmail: "corp@support.com",
+    const formData = ref<AddBoat>({
+      boatType: "gulet",
+      boatName: "asd",
+      privateBoatType: "Option1",
+      privateBoatClass: "Option1",
+      createYear: "2017",
+      flag: "Türkiye",
+      cabCount: "1",
+      guestCount: "15",
+      crewCount: "6",
+      boatLength: "16.8",
+      boatWidth: "4.8",
+      boatDeep: ".18",
       nameOnCard: "Max Doe",
-      cardNumber: "4111 1111 1111 1111",
-      cardExpiryMonth: "1",
-      cardExpiryYear: "2",
-      cardCvv: "123",
-      saveCard: "1",
+      visitPorts: [],
     });
 
     onMounted(() => {
@@ -237,32 +226,32 @@ export default defineComponent({
       setCurrentPageBreadcrumbs("Horizontal", ["Pages", "Wizards"]);
     });
 
-    const createAccountSchema = [
+    const AddBoatSchema = [
       Yup.object({
-        accountType: Yup.string().required().label("Account Type"),
+        boatType: Yup.string().required().label("Tekne Tipi"),
       }),
       Yup.object({
-        accountName: Yup.string().required().label("Account Name"),
+        privateBoatType: Yup.string().required().label("Tekne Tipi"),
+        privateBoatClass: Yup.string().required().label("Tekne Tipi"),
+        boatName: Yup.string().required().label("Tekne İsmi"),
       }),
       Yup.object({
-        businessName: Yup.string().required().label("Business Name"),
-        businessDescriptor: Yup.string()
-          .required()
-          .label("Shortened Descriptor"),
-        businessType: Yup.string().required().label("Corporation Type"),
-        businessEmail: Yup.string().required().label("Contact Email"),
+        createYear: Yup.string().required().label("Business Name"),
+        flag: Yup.string().required().label("Shortened Descriptor"),
+        cabCount: Yup.string().required().label("Corporation Type"),
+        crewCount: Yup.string().required().label("Contact Email"),
+        boatLength: Yup.string().required().label("Contact Email"),
+        boatWidth: Yup.string().required().label("Contact Email"),
+        boatDeep: Yup.string().required().label("Contact Email"),
       }),
       Yup.object({
         nameOnCard: Yup.string().required().label("Name On Card"),
-        cardNumber: Yup.string().required().label("Card Number"),
-        cardExpiryMonth: Yup.string().required().label("Expiration Month"),
-        cardExpiryYear: Yup.string().required().label("Expiration Year"),
-        cardCvv: Yup.string().required().label("CVV"),
+        visitPorts: Yup.string().required().label("Card Number"),
       }),
     ];
 
     const currentSchema = computed(() => {
-      return createAccountSchema[currentStepIndex.value];
+      return AddBoatSchema[currentStepIndex.value];
     });
 
     const { resetForm, handleSubmit } = useForm<Step1 | Step2 | Step3 | Step4>({
@@ -284,20 +273,20 @@ export default defineComponent({
     });
 
     const handleStep = handleSubmit((values) => {
-      console.log(values);
-
       formData.value = {
         ...formData.value,
         ...values,
+        
       };
 
       currentStepIndex.value++;
-
       if (!_stepperObj.value) {
         return;
       }
 
       _stepperObj.value.goNext();
+
+      console.log(formData.value);
     });
 
     const previousStep = () => {

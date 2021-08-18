@@ -32,7 +32,7 @@
           <Field
             type="radio"
             class="btn-check"
-            name="accountType"
+            name="boatType"
             :value="item.name"
             :id="'kt_create_account_form_account_type_' + item.name"
           />
@@ -48,11 +48,7 @@
             :for="'kt_create_account_form_account_type_' + item.name"
           >
             <span class="me-5">
-              <img
-                :src="item.icon"
-                style="width: 64px"
-                alt=""
-              />
+              <img :src="item.icon" style="width: 64px" alt="" />
             </span>
 
             <!--begin::Info-->
@@ -67,7 +63,10 @@
         </div>
         <!--end::Col-->
 
-        <ErrorMessage name="accountType"></ErrorMessage>
+        <ErrorMessage
+          name="boatType"
+          class="fv-plugins-message-container invalid-feedback"
+        ></ErrorMessage>
       </div>
       <!--end::Row-->
     </div>
@@ -109,11 +108,7 @@ export default defineComponent({
           text: "Katamaran",
           icon: "https://image0.flaticon.com/icons/png/128/3324/3324522.png",
         },
-        {
-          name: "kabin",
-          text: "Kabin",
-          icon: "https://image.flaticon.com/icons/png/512/4164/4164310.png",
-        },
+       
       ],
     };
   },
