@@ -1,5 +1,5 @@
 <template>
-  <demand-table :list="list" :tableTotalData="7"></demand-table>
+  <demand-table :list="list" :tableTotalData="10"></demand-table>
 </template>
 
 <script>

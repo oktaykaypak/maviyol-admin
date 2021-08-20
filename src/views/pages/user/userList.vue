@@ -1,5 +1,5 @@
 <template>
-  <user-table :list="list" :tableTotalData="7"></user-table>
+  <user-table :list="list" :tableTotalData="10"></user-table>
 </template>
 
 <script>

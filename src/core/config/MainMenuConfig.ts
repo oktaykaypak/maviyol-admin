@@ -21,7 +21,7 @@ const DocMenuConfig: object = [
       {
         heading: "Tekneler",
         route: "/boatslist",
-        svgIcon: "media/icons/duotone/Code/Compiling.svg",
+        svgIcon: "media/icons/duotone/Code/Code.svg",
         fontIcon: "bi-collection",
       },
       {
@@ -44,13 +44,13 @@ const DocMenuConfig: object = [
       {
         heading: "Yorum Yönetimi",
         route: "/comments",
-        svgIcon: "media/icons/duotone/Code/Compiling.svg",
+        svgIcon: "media/icons/duotone/Code/Code.svg",
         fontIcon: "bi-chat-left-dots",
       },
       {
         sectionTitle: "Site Yönetimi",
         route: "/management",
-        svgIcon: "media/icons/duotone/Code/Compiling.svg",
+        svgIcon: "media/icons/duotone/Code/Code.svg",
         fontIcon: "bi-code-slash",
         sub: [
           {

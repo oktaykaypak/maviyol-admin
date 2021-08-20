@@ -1,5 +1,5 @@
 <template>
-  <dealer-table :list="list" :tableTotalData="7"></dealer-table>
+  <dealer-table :list="list" :tableTotalData="10"></dealer-table>
 </template>
 
 <script>

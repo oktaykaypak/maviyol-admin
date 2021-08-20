@@ -1,5 +1,5 @@
 <template>
-  <seo-table :list="list" :tableTotalData="7"></seo-table>
+  <seo-table :list="list" :tableTotalData="10"></seo-table>
 </template>
 
 <script>

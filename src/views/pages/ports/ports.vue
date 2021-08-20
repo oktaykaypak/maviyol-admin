@@ -1,5 +1,5 @@
 <template>
-  <port-table :list="list" :tableTotalData="7"></port-table>
+  <port-table :list="list" :tableTotalData="10"></port-table>
 </template>
 
 <script>

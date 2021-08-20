@@ -1,5 +1,5 @@
 <template>
-  <comment-table :list="list" :tableTotalData="7"></comment-table>
+  <comment-table :list="list" :tableTotalData="10"></comment-table>
 </template>
 
 <script>

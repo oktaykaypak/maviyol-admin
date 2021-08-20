@@ -1,7 +1,7 @@
 <template>
   <!--begin::tekneTable-->
   <div class="row">
-    <div class="col-md-11">
+    <div class="col-md-12">
       <DataTable :list="list" type="comment" :tableTotalData="10"></DataTable>
     </div>
   </div>

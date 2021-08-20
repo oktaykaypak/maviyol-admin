@@ -1,5 +1,5 @@
 <template>
-  <rez-kabin :list="list" :tableTotalData="7"></rez-kabin>
+  <rez-kabin :list="list" :tableTotalData="10"></rez-kabin>
 </template>
 
 <script>

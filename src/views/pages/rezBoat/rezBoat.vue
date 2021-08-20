@@ -1,5 +1,5 @@
 <template>
-  <rez-tekne :list="list" :tableTotalData="7"></rez-tekne>
+  <rez-tekne :list="list" :tableTotalData="10"></rez-tekne>
 </template>
 
 <script>
