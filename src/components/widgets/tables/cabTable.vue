@@ -5,12 +5,12 @@
       <!--begin::Header-->
       <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
-          <span class="card-label fw-bolder fs-3 mb-1">Tekneler</span>
+          <span class="card-label fw-bolder fs-3 mb-1">Kabinler</span>
         </h3>
         <div class="card-toolbar">
           <!--begin::Menu-->
           <router-link
-            to="/boat/create"
+            to="/cabin/create"
             class="btn btn-icon btn-color-primary pulse"
           >
             <span class="">
@@ -230,10 +230,12 @@
 
 <script>
 import { defineComponent } from "vue";
+
 import tableService from "../../../views/functions/table";
 export default defineComponent({
   name: "kt-widget-12",
   components: {
+    
   },
   props: {
     widgetClasses: String,

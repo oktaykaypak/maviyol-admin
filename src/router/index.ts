@@ -32,12 +32,17 @@ const routes: Array<RouteRecordRaw> = [
         path: "/boatslist",
         name: "teknetable",
         component: () => import("@/views/pages/tekne/tekneTable.vue")
+      },{
+        path: "/cablist",
+        name: "cablist",
+        component: () => import("@/views/pages/kabin/cabTable.vue")
       },
       {
         path: "/userlist",
         name: "userlist",
         component: () => import("@/views/pages/user/userList.vue")
       },
+      
       {
         path: "/rez-boat",
         name: "rezBoat",
@@ -61,7 +66,12 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: "/ports",
         name: "ports",
-        component: () => import("@/views/pages/ports/ports.vue")
+        component: () => import("@/views/pages/ports/ports.vue"),
+      },
+      {
+        path: "/ports/create",
+        name: "portsCreate",
+        component: () => import("@/views/pages/ports/portCreate.vue")
       },
       {
         path: "/rez-cab",

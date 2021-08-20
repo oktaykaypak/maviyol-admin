@@ -2,7 +2,9 @@
   <!--begin::Wrapper-->
   <div class="w-100">
     <!--begin::Heading-->
-    <div class="p-8 bg-light-primary border-primary pb-lg-10 border border-dashed ">
+    <div
+      class="p-8 bg-light-primary border-primary pb-lg-10 border border-dashed "
+    >
       <!--begin::Title-->
       <h2 class="fw-bolder text-dark">İşlem Tamam!</h2>
       <!--end::Title-->
@@ -16,56 +18,27 @@
     <!--end::Heading-->
 
     <!--begin::Body-->
-    <div class="mb-0 mt-3">
+    <div class="mb-0 mt-3 ">
       <!--begin::Text-->
       <div class="fs-6 text-gray-600 mb-5 text-center">
         <div class="row mb-2">
-          <div class="col-12 h3 ">{{ data.boatName }}</div>
-        </div>
-        <div class="row h5 text-gray-700">
-          <div class="col-6">
-            {{ data.boatType }} Tipi:
-            <span class="h6 text-gray-600"> {{ data.privateBoatType }} </span>
-          </div>
-          <div class="col-6">
-            {{ data.boatType }} Sınıfı:
-            <span class="h6 text-gray-600"> {{ data.privateBoatClass }} </span>
-          </div>
+          <div class="col-12 h3 ">{{ data.PortName }}</div>
         </div>
         <hr />
-        <div class="row">
-          <div class="col-4">Bayrak: {{ data.flag }}</div>
-          <div class="col-4">Yıl: {{ data.createYear }}</div>
-          <div class="col-4">Kabin Sayısı: {{ data.cabCount }}</div>
+        <div class="row mb-2">
+          <div class="col-12 ">URLalias: {{ data.URLalias }}</div>
         </div>
         <hr />
-        <div class="row">
-          <div class="col-4">Personel Sayısı: {{ data.crewCount }}</div>
-          <div class="col-4">Misafir Kapasitesi: {{ data.guestCount }}</div>
-          <div class="col-4">Liman: {{ data.itsPort }}</div>
+        <div class="row mb-2">
+          <div class="col-12 ">Meta Title: {{ data.title }}</div>
         </div>
         <hr />
-        <div class="row">
-          <div class="col-4">Derinlik: {{ data.boatDeep }}</div>
-          <div class="col-4">Uzunluk: {{ data.boatLength }}</div>
-          <div class="col-4">Genişlik: {{ data.boatWidth }}</div>
+        <div class="row mb-2">
+          <div class="col-12 ">Meta Description: {{ data.desc }}</div>
         </div>
         <hr />
-        <div class="row mb-3">
-          <div class="col-12 h4 text-gray-700">
-            Limanlar:
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12">
-            <span
-              v-for="item in data.selectedPorts.split(',')"
-              :key="item"
-              class="badge badge-primary me-1"
-              >{{ item }}</span
-            >
-          </div>
+        <div class="row mb-2">
+          <div class="col-12 ">Meta Keywords: {{ data.keyword }}</div>
         </div>
       </div>
       <!--end::Text-->
@@ -114,7 +87,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "step-5",
+  name: "step-2",
   components: {},
   props: {
     data: Object,

@@ -51,7 +51,7 @@
         data-hide-search="true"
         as="select"
       >
-      <option value="" disabled selected>Tekne Tipi Seçiniz..</option>
+      <option value="" disabled selected>{{boatType}} Tipi Seçiniz..</option>
         <option v-for="item in options"
           :key="item.value"
           :label="item.label"
@@ -73,7 +73,7 @@
         data-hide-search="true"
         as="select"
       >
-      <option value="" disabled selected> Tekne Sınıfı Seçiniz..</option>
+      <option value="" disabled selected> {{boatType}} Sınıfı Seçiniz..</option>
         <option v-for="item in options"
           :key="item.value"
           :label="item.label"
@@ -94,9 +94,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { Field, ErrorMessage } from "vee-validate";
+import { stringSnakeToCamel } from "@/assets/ts/_utils";
 
 export default defineComponent({
   name: "step-2",
+  props:{
+    boatType: String
+  },
   components: {
     Field,
     ErrorMessage,

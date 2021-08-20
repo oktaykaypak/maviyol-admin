@@ -9,20 +9,15 @@
         </h3>
         <div class="card-toolbar">
           <!--begin::Menu-->
-          <button
-            type="button"
-            class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
-            data-kt-menu-trigger="click"
-            data-kt-menu-placement="bottom-end"
-            data-kt-menu-flip="top-end"
+          <router-link
+            to="/ports/create"
+            class="btn btn-icon btn-color-primary pulse"
           >
-            <span class="svg-icon svg-icon-2">
-              <inline-svg
-                src="media/icons/duotone/Layout/Layout-4-blocks-2.svg"
-              />
+            <span class="">
+              <i class="bi bi-plus-lg" style="line-height:0"></i>
             </span>
-          </button>
-          <Dropdown2></Dropdown2>
+            <span class="pulse-ring pulse-primary"></span>
+          </router-link>
           <!--end::Menu-->
         </div>
       </div>
@@ -235,20 +230,17 @@
 
 <script>
 import { defineComponent } from "vue";
-import Dropdown2 from "@/components/dropdown/Dropdown2.vue";
 import tableService from "../../../views/functions/table";
 export default defineComponent({
   name: "kt-widget-12",
-  components: {
-    Dropdown2,
-  },
+  components: {},
   props: {
     widgetClasses: String,
     list: [],
     tableTotalData: {
       type: Int32Array,
-      default:10
-    } 
+      default: 10,
+    },
   },
   data() {
     return {

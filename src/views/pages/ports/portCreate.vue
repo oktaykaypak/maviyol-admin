@@ -17,12 +17,6 @@
           </div>
           <!--end::Step 1-->
 
-          <!--begin::Step 3-->
-          <div class="stepper-item" data-kt-stepper-element="nav">
-            <h3 class="stepper-title">Genel bilgiler</h3>
-          </div>
-          <!--end::Step 3-->
-
           <!--begin::Step 5-->
           <div class="stepper-item" data-kt-stepper-element="nav">
             <h3 class="stepper-title">Kayıt</h3>
@@ -44,15 +38,9 @@
           </div>
           <!--end::Step 1-->
 
-          <!--begin::Step 3-->
-          <div data-kt-stepper-element="content">
-            <Step2></Step2>
-          </div>
-          <!--end::Step 3-->
-
           <!--begin::Step 5-->
           <div data-kt-stepper-element="content">
-            <Step3 :data="formData"></Step3>
+            <Step2 :data="formData"></Step2>
           </div>
           <!--end::Step 5-->
 
@@ -128,23 +116,20 @@ import { useForm } from "vee-validate";
 import { useRouter } from "vue-router";
 import Swal from "sweetalert2/dist/sweetalert2.min.js";
 import * as Yup from "yup";
-import Step1 from "@/views/pages/kabin/steps/Step1.vue";
-import Step2 from "@/views/pages/kabin/steps/Step2.vue";
-import Step3 from "@/views/pages/kabin/steps/Step3.vue";
+import Step1 from "@/views/pages/ports/steps/Step1.vue";
+import Step2 from "@/views/pages/ports/steps/Step2.vue";
 import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
 
 interface Step1 {
-  cabinName: string;
-  cabClass: string;
-  cabConsept: string;
+  PortName: string;
+  URLalias: string;
+  title: string;
+  keyword: string;
+  desc: string;
 }
 
 interface Step2 {
-  port: string;
-  tourDay: string;
-  tourNight: string;
-  coves: string;
-  selectedPorts: string;
+  asd: string;
 }
 
 interface AddBoat extends Step1, Step2 {}
@@ -154,7 +139,6 @@ export default defineComponent({
   components: {
     Step1,
     Step2,
-    Step3,
   },
   setup() {
     const _stepperObj = ref<StepperComponent | null>(null);
@@ -162,14 +146,12 @@ export default defineComponent({
     const currentStepIndex = ref(0);
     const router = useRouter();
     const formData = ref<AddBoat>({
-      cabinName: "asd",
-      cabClass: "Option1",
-      cabConsept: "Option1",
-      port: "Option1",
-      tourDay: "Türkiye",
-      tourNight: "1",
-      coves: "4.8",
-      selectedPorts: "",
+      PortName: "string",
+      URLalias: "string",
+      title: "string",
+      keyword: "string",
+      desc: "string",
+      asd: "",
     });
 
     onMounted(() => {
@@ -182,40 +164,21 @@ export default defineComponent({
 
     const AddBoatSchema = [
       Yup.object({
-        cabClass: Yup.string()
+        PortName: Yup.string()
           .required()
           .label("Sınıf"),
-        cabConsept: Yup.string()
+        URLalias: Yup.string()
           .required()
           .label("Konsept"),
-        cabinName: Yup.string()
+        title: Yup.string()
           .required()
           .label("İsim"),
-      }),
-      Yup.object({
-        port: Yup.string()
+        keyword: Yup.string()
           .required()
-          .label("Liman"),
-        tourDay: Yup.string()
+          .label("İsim"),
+        desc: Yup.string()
           .required()
-          .label("Tur günü"),
-        tourNight: Yup.string()
-          .required()
-          .label("Tur gecesi"),
-        coves: Yup.string()
-          .required()
-          .label("Koylar"),
-        selectedPorts: Yup.string()
-          .required()
-          .label("Rota"),
-      }),
-      Yup.object({
-        selectedPorts: Yup.string()
-          .required()
-          .label("liman"),
-        itsPort: Yup.string()
-          .required()
-          .label("bağlı olduğu liman"),
+          .label("İsim"),
       }),
     ];
 
@@ -223,7 +186,7 @@ export default defineComponent({
       return AddBoatSchema[currentStepIndex.value];
     });
 
-    const { resetForm, handleSubmit } = useForm<Step1 | Step2>({
+    const { resetForm, handleSubmit } = useForm<Step1>({
       validationSchema: currentSchema,
     });
 

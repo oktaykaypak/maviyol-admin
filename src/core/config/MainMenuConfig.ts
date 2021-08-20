@@ -17,7 +17,6 @@ const DocMenuConfig: object = [
   },
   {
     heading: "Tekne & Kabin",
-    route: "/",
     pages: [
       {
         heading: "Tekneler",
@@ -25,11 +24,16 @@ const DocMenuConfig: object = [
         svgIcon: "media/icons/duotone/Code/Compiling.svg",
         fontIcon: "bi-collection",
       },
+      {
+        heading: "Kabinler",
+        route: "/cablist",
+        svgIcon: "media/icons/duotone/Code/Compiling.svg",
+        fontIcon: "bi-card-list",
+      },
     ],
   },
   {
     heading: "Yönetim",
-    route: "/",
     pages: [
       {
         heading: "Liman Yönetimi",
@@ -69,7 +73,6 @@ const DocMenuConfig: object = [
   },
   {
     heading: "Bayilikler",
-    route: "/",
     pages: [
       {
         heading: "Bayilikler",

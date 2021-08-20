@@ -58,7 +58,7 @@
 
           <!--begin::Step 2-->
           <div data-kt-stepper-element="content">
-            <Step2></Step2>
+            <Step2 :boatType="formData.boatType"></Step2>
           </div>
           <!--end::Step 2-->
 
@@ -76,7 +76,7 @@
 
           <!--begin::Step 5-->
           <div data-kt-stepper-element="content">
-            <Step5></Step5>
+            <Step5 :data="formData"></Step5>
           </div>
           <!--end::Step 5-->
 
@@ -108,7 +108,7 @@
                 @click="formSubmit()"
               >
                 <span class="indicator-label">
-                  Submit
+                  Onayla
                   <span class="svg-icon svg-icon-3 ms-2 me-0">
                     <inline-svg
                       src="media/icons/duotone/Navigation/Right-2.svg"
@@ -149,6 +149,7 @@
 import { computed, defineComponent, onMounted, ref } from "vue";
 import { StepperComponent } from "@/assets/ts/components";
 import { useForm } from "vee-validate";
+import { useRouter } from "vue-router";
 import Swal from "sweetalert2/dist/sweetalert2.min.js";
 import * as Yup from "yup";
 import Step1 from "@/views/pages/tekne/steps/Step1.vue";
@@ -184,6 +185,10 @@ interface Step4 {
   itsPort: string;
 }
 
+interface Step5 {
+  data: any;
+}
+
 interface AddBoat extends Step1, Step2, Step3, Step4 {}
 
 export default defineComponent({
@@ -199,22 +204,22 @@ export default defineComponent({
     const _stepperObj = ref<StepperComponent | null>(null);
     const horizontalWizardRef = ref<HTMLElement | null>(null);
     const currentStepIndex = ref(0);
-
+    const router = useRouter();
     const formData = ref<AddBoat>({
-      boatType: "gulet",
-      boatName: "asd",
-      privateBoatType: "Option1",
-      privateBoatClass: "Option1",
-      createYear: "2017",
-      flag: "Türkiye",
-      cabCount: "1",
-      guestCount: "15",
-      crewCount: "6",
-      boatLength: "16.8",
-      boatWidth: "4.8",
-      boatDeep: ".18",
+      boatType: "",
+      boatName: "",
+      privateBoatType: "",
+      privateBoatClass: "",
+      createYear: "",
+      flag: "",
+      cabCount: "",
+      guestCount: "",
+      crewCount: "",
+      boatLength: "",
+      boatWidth: "",
+      boatDeep: "",
       selectedPorts: "",
-      itsPort:""
+      itsPort: "",
     });
 
     onMounted(() => {
@@ -227,26 +232,51 @@ export default defineComponent({
 
     const AddBoatSchema = [
       Yup.object({
-        boatType: Yup.string().required().label("Tekne Tipi"),
+        boatType: Yup.string()
+          .required()
+          .label("Tekne Tipi"),
       }),
       Yup.object({
-        privateBoatType: Yup.string().required().label("Tekne Tipi"),
-        privateBoatClass: Yup.string().required().label("Tekne Tipi"),
-        boatName: Yup.string().required().label("Tekne İsmi"),
+        privateBoatType: Yup.string()
+          .required()
+          .label("Tekne Tipi"),
+        privateBoatClass: Yup.string()
+          .required()
+          .label("Tekne Tipi"),
+        boatName: Yup.string()
+          .required()
+          .label("Tekne İsmi"),
       }),
       Yup.object({
-        createYear: Yup.string().required().label("Yıl"),
-        flag: Yup.string().required().label("Bayrak"),
-        cabCount: Yup.string().required().label("kabin sayısı"),
-        crewCount: Yup.string().required().label("personel"),
-        boatLength: Yup.string().required().label("uzunluk"),
-        boatWidth: Yup.string().required().label("genişlik"),
-        boatDeep: Yup.string().required().label("deinlik"),
+        createYear: Yup.string()
+          .required()
+          .label("Yıl"),
+        flag: Yup.string()
+          .required()
+          .label("Bayrak"),
+        cabCount: Yup.string()
+          .required()
+          .label("kabin sayısı"),
+        crewCount: Yup.string()
+          .required()
+          .label("personel"),
+        boatLength: Yup.string()
+          .required()
+          .label("uzunluk"),
+        boatWidth: Yup.string()
+          .required()
+          .label("genişlik"),
+        boatDeep: Yup.string()
+          .required()
+          .label("deinlik"),
       }),
       Yup.object({
-        selectedPorts: Yup.string().required().label("liman"),
-        itsPort: Yup.string().required().label("bağlı olduğu liman"),
-
+        selectedPorts: Yup.string()
+          .required()
+          .label("liman"),
+        itsPort: Yup.string()
+          .required()
+          .label("bağlı olduğu liman"),
       }),
     ];
 
@@ -254,7 +284,9 @@ export default defineComponent({
       return AddBoatSchema[currentStepIndex.value];
     });
 
-    const { resetForm, handleSubmit } = useForm<Step1 | Step2 | Step3 | Step4>({
+    const { resetForm, handleSubmit } = useForm<
+      Step1 | Step2 | Step3 | Step4 | Step5
+    >({
       validationSchema: currentSchema,
     });
 
@@ -299,16 +331,25 @@ export default defineComponent({
     };
 
     const formSubmit = () => {
+      console.log('Result: ')
       Swal.fire({
-        text: "All is cool! Now you submit this form",
+        text: "Her Şey Tamam. Verileri Kaydettik",
         icon: "success",
         buttonsStyling: false,
-        confirmButtonText: "Ok, got it!",
+        confirmButtonText: "Onayla",
+        showCancelButton: true,
+        cancelButtonText: "Yeni Ekle",
         customClass: {
-          confirmButton: "btn fw-bold btn-light-primary",
+          confirmButton: "btn fw-bold btn-primary",
+          cancelButton: "btn fw-bold btn-light-primary",
         },
-      }).then(() => {
-        window.location.reload();
+      }).then((result) => {
+        console.log(result);
+        if (result.isConfirmed) {
+          router.push("/");
+        } else {
+          window.location.reload();
+        }
       });
     };
 
@@ -319,6 +360,7 @@ export default defineComponent({
       formSubmit,
       totalSteps,
       currentStepIndex,
+      formData,
     };
   },
 });

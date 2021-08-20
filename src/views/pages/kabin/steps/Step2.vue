@@ -157,12 +157,12 @@
         </div>
 
         <!--begin::Input-->
-        <div>{{ str_selectedPorts }}</div>
+        <div>{{ strSelectedPorts }}</div>
         <Field
-          v-model="str_selectedPorts"
+          v-model="strSelectedPorts"
           type="text"
           class="form-control form-control-lg form-control-solid d-none"
-          :value="str_selectedPorts"
+          :value="strSelectedPorts"
           name="selectedPorts"
           placeholder=""
         />
@@ -192,7 +192,7 @@ export default defineComponent({
   data() {
     return {
       selectedPorts: [],
-      str_selectedPorts: "",
+      strSelectedPorts: "",
       options: [
         {
           value: "Option1",
@@ -229,7 +229,7 @@ export default defineComponent({
         this.selectedPorts.splice(checks, 1);
       }
       console.log(this.selectedPorts);
-      this.str_selectedPorts = String(this.selectedPorts);
+      this.strSelectedPorts = String(this.selectedPorts);
     },
   },
 });

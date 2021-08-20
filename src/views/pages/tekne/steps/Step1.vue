@@ -89,22 +89,22 @@ export default defineComponent({
     return {
       boattype: [
         {
-          name: "gulet",
+          name: "Gulet",
           text: "Gulet",
           icon: "https://image.flaticon.com/icons/png/128/1264/1264818.png",
         },
         {
-          name: "motoryat",
+          name: "Motoryat",
           text: "Motoryat",
           icon: "https://image.flaticon.com/icons/png/512/618/618942.png",
         },
         {
-          name: "yelkenli",
+          name: "Yelkenli",
           text: "Yelkenli",
           icon: "https://image.flaticon.com/icons/png/512/618/618940.png",
         },
         {
-          name: "katamaran",
+          name: "Katamaran",
           text: "Katamaran",
           icon: "https://image0.flaticon.com/icons/png/128/3324/3324522.png",
         },

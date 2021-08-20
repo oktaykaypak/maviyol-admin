@@ -2,29 +2,65 @@
   <!--begin::Wrapper-->
   <div class="w-100">
     <!--begin::Heading-->
-    <div class="pb-8 pb-lg-10">
+    <div
+      class="p-8 bg-light-primary border-primary pb-lg-10 border border-dashed "
+    >
       <!--begin::Title-->
-      <h2 class="fw-bolder text-dark">Your Are Done!</h2>
+      <h2 class="fw-bolder text-dark">İşlem Tamam!</h2>
       <!--end::Title-->
 
       <!--begin::Notice-->
       <div class="text-gray-400 fw-bold fs-6">
-        If you need more info, please
-        <router-link to="/sign-in" class="link-primary fw-bolder"
-          >Sign In</router-link
-        >.
+        Kaydınızı oluşturduk, verilerinizi kontrol edebilirisiniz.
       </div>
       <!--end::Notice-->
     </div>
     <!--end::Heading-->
 
     <!--begin::Body-->
-    <div class="mb-0">
+    <div class="mb-0 mt-3">
       <!--begin::Text-->
-      <div class="fs-6 text-gray-600 mb-5">
-        Writing headlines for blog posts is as much an art as it is a science
-        and probably warrants its own post, but for all advise is with what
-        works for your great & amazing audience.
+      <div class="fs-6 text-gray-600 mb-5 text-center">
+        <div class="row mb-2">
+          <div class="col-12 h3 ">{{ data.cabinName }}</div>
+        </div>
+        <div class="row h5 text-gray-700">
+          <div class="col-6">
+            Kabin Konsepti:
+            <span class="h6 text-gray-600"> {{ data.cabConsept }} </span>
+          </div>
+          <div class="col-6">
+            Kabin Sınıfı:
+            <span class="h6 text-gray-600"> {{ data.cabClass }} </span>
+          </div>
+        </div>
+        <hr />
+
+        <div class="row">
+          <div class="col-4">Tur Günü: {{ data.tourDay }}</div>
+          <div class="col-4">Tur Gecesi: {{ data.tourNight }}</div>
+          <div class="col-4">Liman: {{ data.port }}</div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-12">Koylar: {{ data.coves }}</div>
+        </div>
+        <hr />
+        <div class="row mb-3">
+          <div class="col-12 h4 text-gray-700">
+            Limanlar:
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <span
+              v-for="item in data.selectedPorts.split(',')"
+              :key="item"
+              class="badge badge-primary me-1"
+              >{{ item }}</span
+            >
+          </div>
+        </div>
       </div>
       <!--end::Text-->
 
@@ -42,11 +78,19 @@
           <!--begin::Content-->
           <div class="fw-bold">
             <h4 class="text-gray-800 fw-bolder">
-              We need your attention!
+              Her Şey Yolunda Mı?
             </h4>
             <div class="fs-6 text-gray-600">
-              To start using great tools, please, please
-              <a href="#" class="fw-bolder">Create Team Platform</a>
+              Girdiğiniz verilerde yanlışlık var ise geri dönerek düzenleme
+              yapabilirsiniz. <br />
+              Eğer bir yanlışlık yok ise
+              <span class="btn btn-primary p-1 text-sm">
+                Onayla<span class="svg-icon svg-icon-3 ms-2 me-0 text-li">
+                  <inline-svg
+                    src="media/icons/duotone/Navigation/Right-2.svg"
+                  /> </span
+              ></span>
+              tuşuna basarak kaydınızı tamamlayınız.
             </div>
           </div>
           <!--end::Content-->
@@ -60,11 +104,19 @@
   <!--end::Wrapper-->
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "step-3",
-  components: {}
+  components: {},
+  props: {
+    data: Object,
+  },
 });
 </script>
+<style scoped>
+.text-sm {
+  font-size: 1.075rem !important;
+}
+</style>
