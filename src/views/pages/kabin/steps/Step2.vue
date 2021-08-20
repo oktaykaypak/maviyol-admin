@@ -2,25 +2,80 @@
   <!--begin::Wrapper-->
   <div class="w-100">
     <!--begin::Heading-->
-    <div class="pb-10 pb-lg-15">
+    <div class="pb-10 pb-lg-12">
       <!--begin::Title-->
-      <h2 class="fw-bolder text-dark">Billing Details</h2>
+      <h2 class="fw-bolder text-dark">Genel Bilgileri</h2>
       <!--end::Title-->
 
       <!--begin::Notice-->
       <div class="text-gray-400 fw-bold fs-6">
         If you need more info, please check out
-        <a href="#" class="text-primary fw-bolder">Help Page</a>.
       </div>
       <!--end::Notice-->
     </div>
     <!--end::Heading-->
 
-    <div class="w-100">
-      <div class="d-flex flex-column mb-7 fv-row">
-        <div class="row">
-          <div class="col-6">
-            <label
+    <!--begin::Input group-->
+    <div class="fv-row row mb-10">
+      <div class="col-6">
+        <!--begin::Label-->
+        <label class="form-label required">Tur günü</label>
+        <!--end::Label-->
+        <!--begin::Input-->
+        <Field
+          name="tourDay"
+          class="form-control form-control-lg form-control-solid"
+          value=""
+          placeholder="Örn. 3 "
+        />
+        <ErrorMessage
+          name="tourDay"
+          class="fv-plugins-message-container invalid-feedback"
+        ></ErrorMessage>
+        <!--end::Input-->
+      </div>
+      <div class="col-6">
+        <!--begin::Label-->
+        <label class="form-label required">Tur gece</label>
+        <!--end::Label-->
+        <!--begin::Input-->
+        <Field
+          name="tourNight"
+          class="form-control form-control-lg form-control-solid"
+          value=""
+          placeholder="Örn. 2"
+        />
+        <ErrorMessage
+          name="tourNight"
+          class="fv-plugins-message-container invalid-feedback"
+        ></ErrorMessage>
+        <!--end::Input-->
+      </div>
+    </div>
+
+    <div class="fv-row row mb-10">
+      <div class="col-12">
+        <!--begin::Label-->
+        <label class="form-label required">Uğradığı koylar</label>
+        <!--end::Label-->
+        <!--begin::Input-->
+        <Field
+          name="coves"
+          class="form-control form-control-lg form-control-solid"
+          value=""
+          placeholder="Örn. Kelebekler vadisi,Oniki adalar vb. "
+        />
+        <ErrorMessage
+          name="coves"
+          class="fv-plugins-message-container invalid-feedback"
+        ></ErrorMessage>
+        <!--end::Input-->
+      </div>
+    </div>
+
+    <div class="fv-row row mb-10">
+      <div class="col-6">
+          <label
               class="
                 d-flex
                 align-items-center
@@ -31,33 +86,32 @@
                 required
               "
             >
-              Bağlı olduğu liman
+              Liman
             </label>
-            <Field
-              name="itsPort"
-              class="form-select form-select-lg form-select-solid"
-              data-control="select2"
-              data-placeholder="Select..."
-              data-allow-clear="true"
-              data-hide-search="true"
-              as="select"
-            >
-              <option value="" disabled selected>Liman Seçiniz..</option>
-              <option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></option>
-            </Field>
-            <ErrorMessage
-              name="itsPort"
-              class="fv-plugins-message-container invalid-feedback"
-            ></ErrorMessage>
-          </div>
-        </div>
+        <Field
+          name="port"
+          class="form-select form-select-lg form-select-solid"
+          data-control="select2"
+          data-placeholder="Select..."
+          data-allow-clear="true"
+          data-hide-search="true"
+          as="select"
+        >
+          <option value="" disabled selected>Kalkış limanı seçiniz..</option>
+          <option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          ></option>
+        </Field>
+        <ErrorMessage
+          name="port"
+          class="fv-plugins-message-container invalid-feedback"
+        ></ErrorMessage>
       </div>
-      <!--begin::Input group-->
+    </div>
+          <!--begin::Input group-->
       <div class="d-flex flex-column mb-7 fv-row">
         <!--begin::Label-->
         <label
@@ -71,7 +125,7 @@
             required
           "
         >
-          Limanlar
+          Rota
         </label>
         <!--end::Label-->
         <div class="row">
@@ -119,19 +173,18 @@
         <!--end::Input-->
       </div>
       <!--end::Input group-->
-    </div>
+
+    <!--end::Input group-->
   </div>
   <!--end::Wrapper-->
 </template>
 
-<script >
+<script>
 import { defineComponent } from "vue";
 import { Field, ErrorMessage } from "vee-validate";
-import { stringifyQuery } from "vue-router";
-import { string } from "yup/lib/locale";
 
 export default defineComponent({
-  name: "step-4",
+  name: "step-2",
   components: {
     Field,
     ErrorMessage,
@@ -151,11 +204,11 @@ export default defineComponent({
         },
         {
           value: "Option3",
-          label: "Option3Option3Option3",
+          label: "Option3",
         },
         {
           value: "Option4",
-          label: "Option4Option4",
+          label: "Option4",
         },
         {
           value: "Option5",
@@ -163,8 +216,9 @@ export default defineComponent({
         },
       ],
     };
+    
   },
-  methods: {
+    methods: {
     portselect(val) {
       console.log(val);
       const checks = this.selectedPorts.indexOf(val);

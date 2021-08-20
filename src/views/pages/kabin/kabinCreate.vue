@@ -17,23 +17,11 @@
           </div>
           <!--end::Step 1-->
 
-          <!--begin::Step 2-->
-          <div class="stepper-item" data-kt-stepper-element="nav">
-            <h3 class="stepper-title">Tekne bilgileri</h3>
-          </div>
-          <!--end::Step 2-->
-
           <!--begin::Step 3-->
           <div class="stepper-item" data-kt-stepper-element="nav">
             <h3 class="stepper-title">Genel bilgiler</h3>
           </div>
           <!--end::Step 3-->
-
-          <!--begin::Step 4-->
-          <div class="stepper-item" data-kt-stepper-element="nav">
-            <h3 class="stepper-title">Liman bilgileri</h3>
-          </div>
-          <!--end::Step 4-->
 
           <!--begin::Step 5-->
           <div class="stepper-item" data-kt-stepper-element="nav">
@@ -56,27 +44,16 @@
           </div>
           <!--end::Step 1-->
 
-          <!--begin::Step 2-->
+          <!--begin::Step 3-->
           <div data-kt-stepper-element="content">
             <Step2></Step2>
           </div>
-          <!--end::Step 2-->
-
-          <!--begin::Step 3-->
-          <div data-kt-stepper-element="content">
-            <Step3></Step3>
-          </div>
           <!--end::Step 3-->
 
-          <!--begin::Step 4-->
-          <div data-kt-stepper-element="content">
-            <Step4></Step4>
-          </div>
-          <!--end::Step 4-->
 
           <!--begin::Step 5-->
           <div data-kt-stepper-element="content">
-            <Step5></Step5>
+            <Step3></Step3>
           </div>
           <!--end::Step 5-->
 
@@ -151,40 +128,25 @@ import { StepperComponent } from "@/assets/ts/components";
 import { useForm } from "vee-validate";
 import Swal from "sweetalert2/dist/sweetalert2.min.js";
 import * as Yup from "yup";
-import Step1 from "@/views/pages/tekne/steps/Step1.vue";
-import Step2 from "@/views/pages/tekne/steps/Step2.vue";
-import Step3 from "@/views/pages/tekne/steps/Step3.vue";
-import Step4 from "@/views/pages/tekne/steps/Step4.vue";
-import Step5 from "@/views/pages/tekne/steps/Step5.vue";
+import Step1 from "@/views/pages/kabin/steps/Step1.vue";
+import Step2 from "@/views/pages/kabin/steps/Step2.vue";
+import Step3 from "@/views/pages/kabin/steps/Step3.vue";
 import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
 
 interface Step1 {
-  boatType: string;
-}
+  cabinName: string;
+  cabClass: string;
+  cabConsept: string;}
 
 interface Step2 {
-  boatName: string;
-  privateBoatType: string;
-  privateBoatClass: string;
-}
-
-interface Step3 {
-  createYear: string;
-  flag: string;
-  cabCount: string;
-  guestCount: string;
-  crewCount: string;
-  boatLength: string;
-  boatWidth: string;
-  boatDeep: string;
-}
-
-interface Step4 {
+  port: string;
+  tourDay: string;
+  tourNight: string;
+  coves: string;
   selectedPorts: string;
-  itsPort: string;
 }
 
-interface AddBoat extends Step1, Step2, Step3, Step4 {}
+interface AddBoat extends Step1, Step2 {}
 
 export default defineComponent({
   name: "boatcreate",
@@ -192,8 +154,6 @@ export default defineComponent({
     Step1,
     Step2,
     Step3,
-    Step4,
-    Step5,
   },
   setup() {
     const _stepperObj = ref<StepperComponent | null>(null);
@@ -201,20 +161,14 @@ export default defineComponent({
     const currentStepIndex = ref(0);
 
     const formData = ref<AddBoat>({
-      boatType: "gulet",
-      boatName: "asd",
-      privateBoatType: "Option1",
-      privateBoatClass: "Option1",
-      createYear: "2017",
-      flag: "Türkiye",
-      cabCount: "1",
-      guestCount: "15",
-      crewCount: "6",
-      boatLength: "16.8",
-      boatWidth: "4.8",
-      boatDeep: ".18",
+      cabinName: "asd",
+      cabClass: "Option1",
+      cabConsept: "Option1",
+      port: "Option1",
+      tourDay: "Türkiye",
+      tourNight: "1",
+      coves: "4.8",
       selectedPorts: "",
-      itsPort:""
     });
 
     onMounted(() => {
@@ -227,21 +181,16 @@ export default defineComponent({
 
     const AddBoatSchema = [
       Yup.object({
-        boatType: Yup.string().required().label("Tekne Tipi"),
+        cabClass: Yup.string().required().label("Sınıf"),
+        cabConsept: Yup.string().required().label("Konsept"),
+        cabinName: Yup.string().required().label("İsim"),
       }),
       Yup.object({
-        privateBoatType: Yup.string().required().label("Tekne Tipi"),
-        privateBoatClass: Yup.string().required().label("Tekne Tipi"),
-        boatName: Yup.string().required().label("Tekne İsmi"),
-      }),
-      Yup.object({
-        createYear: Yup.string().required().label("Yıl"),
-        flag: Yup.string().required().label("Bayrak"),
-        cabCount: Yup.string().required().label("kabin sayısı"),
-        crewCount: Yup.string().required().label("personel"),
-        boatLength: Yup.string().required().label("uzunluk"),
-        boatWidth: Yup.string().required().label("genişlik"),
-        boatDeep: Yup.string().required().label("deinlik"),
+        port: Yup.string().required().label("Liman"),
+        tourDay: Yup.string().required().label("Tur günü"),
+        tourNight: Yup.string().required().label("Tur gecesi"),
+        coves: Yup.string().required().label("Koylar"),
+        selectedPorts: Yup.string().required().label("Rota"),
       }),
       Yup.object({
         selectedPorts: Yup.string().required().label("liman"),
@@ -254,7 +203,7 @@ export default defineComponent({
       return AddBoatSchema[currentStepIndex.value];
     });
 
-    const { resetForm, handleSubmit } = useForm<Step1 | Step2 | Step3 | Step4>({
+    const { resetForm, handleSubmit } = useForm<Step1 | Step2>({
       validationSchema: currentSchema,
     });
 

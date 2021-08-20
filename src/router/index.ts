@@ -24,6 +24,11 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import("@/views/pages/tekne/boatCreate.vue")
       },
       {
+        path: "/cabin/create",
+        name: "cabincreate",
+        component: () => import("@/views/pages/kabin/kabinCreate.vue")
+      },
+      {
         path: "/boatslist",
         name: "teknetable",
         component: () => import("@/views/pages/tekne/tekneTable.vue")
