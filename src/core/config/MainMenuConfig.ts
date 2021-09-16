@@ -42,6 +42,28 @@ const DocMenuConfig: object = [
         fontIcon: "bi-gear",
       },
       {
+        heading: "Kullanıcı Yönetimi",
+        route: "/userlist",
+        svgIcon: "media/icons/duotone/Code/Compiling.svg",
+        fontIcon: "bi-person",
+      },
+      {
+        heading: "Raporlar",
+        route: "/report",
+        svgIcon: "media/icons/duotone/Code/Compiling.svg",
+        fontIcon: "bi-file-earmark",
+        sub: [
+          {
+            heading: "Banka İade Raporları",
+            route: "/report/bankrefundreports",
+          },
+          {
+            heading: "Ödeme Bekleyen Tekne Sahipleri",
+            route: "/report/pendingpayment",
+          },
+        ],
+      },
+      {
         heading: "Yorum Yönetimi",
         route: "/comments",
         svgIcon: "media/icons/duotone/Code/Code.svg",

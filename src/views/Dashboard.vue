@@ -4,7 +4,12 @@
       <chart1></chart1>
     </div>
     <div class="col-6">
-      <call :list="list" type="comment" :tableTotalData="5"></call>
+      <call :list="list" :tableTotalData="5"></call>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-12">
+      <top10bestorder :list="list" :tableTotalData="5"></top10bestorder>
     </div>
   </div>
 </template>
@@ -14,12 +19,14 @@ import { defineComponent, onMounted } from "vue";
 import { setCurrentPageTitle } from "@/core/helpers/breadcrumb";
 import chart1 from "@/components/dashboardcomp/chart1.vue";
 import call from "@/components/dashboardcomp/callme.vue";
+import top10bestorder from "@/components/dashboardcomp/top10bestorder.vue";
 
 export default defineComponent({
   name: "dashboard",
   components: {
     chart1,
     call,
+    top10bestorder,
   },
   data() {
     return {
