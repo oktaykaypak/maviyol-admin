@@ -9,8 +9,7 @@
 
       <!--begin::Notice-->
       <div class="text-gray-400 fw-bold fs-6">
-        If you need more info, please check out
-        <a href="#" class="text-primary fw-bolder">Help Page</a>.
+        İşleme devam edebilmek için seçim yapınız
       </div>
       <!--end::Notice-->
     </div>

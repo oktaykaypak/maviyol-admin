@@ -7,10 +7,9 @@
       <h2 class="fw-bolder text-dark">Tekne bilgileri</h2>
       <!--end::Title-->
 
-      <!--begin::Notice-->
+        <!--begin::Notice-->
       <div class="text-gray-400 fw-bold fs-6">
-        If you need more info, please check out
-        <a href="#" class="link-primary fw-bolder">Help Page</a>.
+        İşleme devam edebilmek için seçim yapınız
       </div>
       <!--end::Notice-->
     </div>

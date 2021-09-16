@@ -6,7 +6,7 @@
       <!--begin::Header-->
       <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
-          <span class="card-label fw-bolder fs-3 mb-1">Yorumlar</span>
+          <span class="card-label fw-bolder fs-3 mb-1">Arama Talepleri</span>
         </h3>
         <div class="card-toolbar">
           <!--begin::Menu-->
@@ -47,12 +47,9 @@
                     />
                   </div>
                 </th>
-                <th class="min-w-150px">Order Id</th>
-                <th class="min-w-140px">Country</th>
-                <th class="min-w-120px">Date</th>
-                <th class="min-w-120px">Company</th>
-                <th class="min-w-120px">Total</th>
-                <th class="min-w-120px">Status</th>
+                <th class="min-w-150px">İsim</th>
+                <th class="min-w-140px">Telefon</th>
+                <th class="min-w-120px">Tarih/Saat</th>
                 <th class="min-w-100px text-end">Actions</th>
               </tr>
             </thead>
@@ -103,46 +100,6 @@
                     <span class="text-muted fw-bold text-muted d-block fs-7"
                       >Code: {{ item.country.code }}</span
                     >
-                  </td>
-
-                  <td>
-                    <a
-                      href="#"
-                      class="
-                      text-dark
-                      fw-bolder
-                      text-hover-primary
-                      d-block
-                      mb-1
-                      fs-6
-                    "
-                      >{{ item.date.value }}</a
-                    >
-                    <span class="text-muted fw-bold text-muted d-block fs-7"
-                      >Code: {{ item.date.remarks }}</span
-                    >
-                  </td>
-
-                  <td>
-                    <a
-                      href="#"
-                      class="
-                      text-dark
-                      fw-bolder
-                      text-hover-primary
-                      d-block
-                      mb-1
-                      fs-6
-                    "
-                      >{{ item.company.name }}</a
-                    >
-                    <span class="text-muted fw-bold text-muted d-block fs-7">{{
-                      item.company.fields
-                    }}</span>
-                  </td>
-
-                  <td class="text-dark fw-bolder text-hover-primary fs-6">
-                    {{ item.total }}
                   </td>
 
                   <td>
@@ -224,7 +181,8 @@
 
 <script>
 import { defineComponent } from "vue";
-import tableService from "../../../views/functions/table";
+import tableService from "../../views/functions/table";
+
 export default defineComponent({
   name: "kt-widget-12",
   components: {

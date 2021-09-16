@@ -7,9 +7,9 @@
       <h2 class="fw-bolder text-dark">Genel Bilgileri</h2>
       <!--end::Title-->
 
-      <!--begin::Notice-->
+       <!--begin::Notice-->
       <div class="text-gray-400 fw-bold fs-6">
-        If you need more info, please check out
+        İşleme devam edebilmek için seçim yapınız
       </div>
       <!--end::Notice-->
     </div>

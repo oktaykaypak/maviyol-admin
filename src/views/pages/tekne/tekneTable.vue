@@ -2,7 +2,7 @@
   <!--begin::tekneTable-->
   <div class="row">
     <div class="col-md-12">
-      <DataTable :list="list" type="comment" :tableTotalData="10"></DataTable>
+      <DataTable :list="list" type="comment" :tableTotalData="7"></DataTable>
     </div>
   </div>
 
