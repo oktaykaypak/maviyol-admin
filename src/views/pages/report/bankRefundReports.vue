@@ -1,5 +1,5 @@
 <template>
-  
+  <div>banka iade raportları</div>
 </template>
 
 <script>

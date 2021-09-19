@@ -1,5 +1,5 @@
 <template>
-  
+  <div> odeme bekleyen tekne sahipleri</div>
 </template>
 
 <script>

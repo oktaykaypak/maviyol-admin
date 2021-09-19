@@ -1,4 +1,6 @@
-<template> </template>
+<template>
+<div>satış raporları</div>
+ </template>
 
 <script>
 export default {};

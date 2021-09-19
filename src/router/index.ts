@@ -75,7 +75,7 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import("@/views/pages/ports/portCreate.vue"),
       },
       {
-        path: "/report",
+        path: "/report/salereport",
         name: "classicReport",
         component: () => import("@/views/pages/report/classicSaleReport.vue"),
       },
@@ -100,6 +100,16 @@ const routes: Array<RouteRecordRaw> = [
         path: "/management/seo",
         name: "seo",
         component: () => import("@/views/pages/management/seo.vue"),
+      },
+      {
+        path: "/management/website",
+        name: "website",
+        component: () => import("@/views/pages/management/website.vue"),
+      },
+      {
+        path: "/management/bank",
+        name: "bank",
+        component: () => import("@/views/pages/management/bank.vue"),
       },
       {
         path: "/crafted/pages/profile",

@@ -7,12 +7,12 @@ const DocMenuConfig: object = [
         svgIcon: "media/icons/duotone/Design/PenAndRuller.svg",
         fontIcon: "bi-app-indicator",
       },
-      {
-        heading: "layoutBuilder",
-        route: "/builder",
-        svgIcon: "media/icons/duotone/Interface/Settings-02.svg",
-        fontIcon: "bi-layers",
-      },
+      // {
+      //   heading: "layoutBuilder",
+      //   route: "/builder",
+      //   svgIcon: "media/icons/duotone/Interface/Settings-02.svg",
+      //   fontIcon: "bi-layers",
+      // },
     ],
   },
   {
@@ -48,7 +48,7 @@ const DocMenuConfig: object = [
         fontIcon: "bi-person",
       },
       {
-        heading: "Raporlar",
+        sectionTitle: "Raporlar",
         route: "/report",
         svgIcon: "media/icons/duotone/Code/Compiling.svg",
         fontIcon: "bi-file-earmark",
@@ -58,8 +58,12 @@ const DocMenuConfig: object = [
             route: "/report/bankrefundreports",
           },
           {
-            heading: "Ödeme Bekleyen Tekne Sahipleri",
+            heading: "Ödeme Bekleyenler",
             route: "/report/pendingpayment",
+          },
+          {
+            heading: "Satış Raporları",
+            route: "/report/salereport",
           },
         ],
       },
@@ -77,11 +81,15 @@ const DocMenuConfig: object = [
         sub: [
           {
             heading: "Site Bilgileri",
-            route: "#",
+            route: "/management/website",
           },
           {
             heading: "Seo Yönetimi",
             route: "/management/seo",
+          },
+          {
+            heading: "Banka Yönetimi",
+            route: "/management/bank",
           },
         ],
       },
