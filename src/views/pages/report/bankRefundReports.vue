@@ -81,11 +81,11 @@
                     Başlangıç Tarihi:
                   </label>
                   <!-- belirkene keyworde göre searç yapılabilecek alan -->
-                  <el-input
+                  <el-date-picker
                     placeholder="Please input"
                     type="date"
                     v-model="startDate"
-                  ></el-input>
+                  ></el-date-picker>
                 </div>
               </div>
               <div class="row mt-3">
@@ -96,11 +96,11 @@
                     Bitiş Tarihi:
                   </label>
                   <!-- belirkene keyworde göre searç yapılabilecek alan -->
-                  <el-input
+                  <el-date-picker
                     placeholder="Please input"
                     type="date"
                     v-model="endDate"
-                  ></el-input>
+                  ></el-date-picker>
                 </div>
               </div>
               <div class="row mt-5">
