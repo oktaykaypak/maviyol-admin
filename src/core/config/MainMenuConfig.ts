@@ -90,6 +90,9 @@ const DocMenuConfig: object = [
           {
             heading: "Banka Yönetimi",
             route: "/management/bank",
+          },{
+            heading: "Sayfa Yönetimi",
+            route: "/management/pagemanagement",
           },
         ],
       },

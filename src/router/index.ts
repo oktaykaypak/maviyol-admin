@@ -29,6 +29,15 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import("@/views/pages/kabin/kabinCreate.vue"),
       },
       {
+        path: "management/bank/create",
+        name: "bankcreate",
+        component: () => import("@/views/pages/management/bankCreate.vue"),
+      }, {
+        path: "management/pagemanagement",
+        name: "bankcreate",
+        component: () => import("@/views/pages/management/pageManagement.vue"),
+      },
+      {
         path: "/boatslist",
         name: "teknetable",
         component: () => import("@/views/pages/tekne/tekneTable.vue"),
