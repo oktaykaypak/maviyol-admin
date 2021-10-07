@@ -63,9 +63,10 @@ const routes: Array<RouteRecordRaw> = [
         name: "usermanagement",
         component: () => import("@/views/pages/setting/usermanagement.vue"),
       },
+
       {
         path: "setting/virtualpos",
-        name: "usermanagement",
+        name: "virtualpos",
         component: () => import("@/views/pages/setting/virtualpos.vue"),
       },
       {
