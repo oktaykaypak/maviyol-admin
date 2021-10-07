@@ -32,10 +32,41 @@ const routes: Array<RouteRecordRaw> = [
         path: "management/bank/create",
         name: "bankcreate",
         component: () => import("@/views/pages/management/bankCreate.vue"),
-      }, {
+      },
+      {
         path: "management/pagemanagement",
-        name: "bankcreate",
+        name: "pageManagement",
         component: () => import("@/views/pages/management/pageManagement.vue"),
+      },
+      {
+        path: "setting/details",
+        name: "details",
+        component: () => import("@/views/pages/setting/details.vue"),
+      },
+      {
+        path: "setting/social",
+        name: "social",
+        component: () => import("@/views/pages/setting/social.vue"),
+      },
+      {
+        path: "setting/tagmanager",
+        name: "tagmanager",
+        component: () => import("@/views/pages/setting/tagmanager.vue"),
+      },
+      {
+        path: "setting/agent",
+        name: "agent",
+        component: () => import("@/views/pages/setting/agent.vue"),
+      },
+      {
+        path: "setting/usermanagement",
+        name: "usermanagement",
+        component: () => import("@/views/pages/setting/usermanagement.vue"),
+      },
+      {
+        path: "setting/virtualpos",
+        name: "usermanagement",
+        component: () => import("@/views/pages/setting/virtualpos.vue"),
       },
       {
         path: "/boatslist",

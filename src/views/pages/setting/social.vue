@@ -1,5 +1,8 @@
 <template>
-  <div>ck editör eklenecek</div>
+  <div>
+    sosyalmedya
+    
+  </div>
 </template>
 
 <script>

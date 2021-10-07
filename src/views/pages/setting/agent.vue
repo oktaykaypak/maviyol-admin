@@ -1,5 +1,5 @@
 <template>
-  <div>ck editör eklenecek</div>
+  <div>acentaların komsisyonları listelenecek</div>
 </template>
 
 <script>

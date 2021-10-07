@@ -90,7 +90,8 @@ const DocMenuConfig: object = [
           {
             heading: "Banka Yönetimi",
             route: "/management/bank",
-          },{
+          },
+          {
             heading: "Sayfa Yönetimi",
             route: "/management/pagemanagement",
           },
@@ -101,6 +102,64 @@ const DocMenuConfig: object = [
         route: "/demands",
         svgIcon: "media/icons/duotone/Code/Compiling.svg",
         fontIcon: "bi-app-indicator",
+      },
+    ],
+  },
+  {
+    heading: "Site Ayarları",
+    pages: [
+      {
+        heading: "Genel Ayarlar",
+        route: "/setting/details",
+        svgIcon: "media/icons/duotone/Code/Code.svg",
+        fontIcon: "bi-gear",
+        // sub: [
+        //   {
+        //     heading: "Kullanıcı Arayüzü",
+        //     route: "/setting/details",
+        //   },
+        //   {
+        //     heading: "Seo Yönetimi",
+        //     route: "/management/seo",
+        //   },
+        //   {
+        //     heading: "Banka Yönetimi",
+        //     route: "/management/bank",
+        //   },
+        //   {
+        //     heading: "Sayfa Yönetimi",
+        //     route: "/management/pagemanagement",
+        //   },
+        // ],
+      },
+      {
+        heading: "Sosyal Medya",
+        route: "/setting/social",
+        svgIcon: "media/icons/duotone/Code/Compiling.svg",
+        fontIcon: "bi-instagram",
+      },
+      {
+        heading: "Etiket Yönetimi",
+        route: "/setting/tagmanager",
+        svgIcon: "media/icons/duotone/Code/Compiling.svg",
+        fontIcon: "bi-code-slash",
+      },
+      {
+        heading: "Acenta Yönetimi",
+        route: "/setting/agent",
+        svgIcon: "media/icons/duotone/Code/Compiling.svg",
+        fontIcon: "bi-percent",
+      },
+      {
+        heading: "Admin Kullanıcı Yönetimi",
+        route: "/setting/usermanagement",
+        svgIcon: "media/icons/duotone/Code/Compiling.svg",
+        fontIcon: "bi-person",
+      },{
+        heading: "Sanal Pos Ayarları",
+        route: "/setting/virtualpos",
+        svgIcon: "media/icons/duotone/Code/Compiling.svg",
+        fontIcon: "bi-wallet2",
       },
     ],
   },
